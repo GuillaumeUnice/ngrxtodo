@@ -1,0 +1,13 @@
+.app_container {
+    width: 800px;
+    margin: auto;
+    padding : 20px 0px;
+}
+
+h1 {
+    background-color: #2196F3;
+    margin: 0;
+    color: #DDD;
+    padding: 10px 5px;
+    font-weight: bold;
+}
