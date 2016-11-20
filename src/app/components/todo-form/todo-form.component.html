@@ -1,5 +1,5 @@
 <div class="todo_form_container">
-    <form #formLogin="ngForm" (ngSubmit)="addTask(formLogin.value)" novalidate>
+    <form #formLogin="ngForm" (ngSubmit)="createTodo.emit(formLogin.value)" novalidate>
 
         <label for="task">Task :</label>
         <input type="text" [(ngModel)]="task" name="task" minlength="3" placeholder="your task" required #localTask="ngModel">

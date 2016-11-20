@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Todo } from '../../models/todo';
 
 @Component({
@@ -6,18 +6,8 @@ import { Todo } from '../../models/todo';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
 
-  todos: Todo[] = [];
+  @Input() todos: Todo[];
 
-  ngOnInit() {
-    this.todos.push({
-      content: 'Task number 1',
-      isCompleted: false
-    });
-    this.todos.push({
-      content: 'Task number 2',
-      isCompleted: false
-    });
-  }
 }

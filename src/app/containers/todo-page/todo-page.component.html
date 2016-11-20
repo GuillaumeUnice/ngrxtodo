@@ -1,4 +1,4 @@
 <div>
-  <todo-form></todo-form>
-  <todo-list></todo-list>
+  <todo-form (createTodo)="createTodo($event)"></todo-form>
+  <todo-list [todos]="todos$ | async"></todo-list>
 </div>

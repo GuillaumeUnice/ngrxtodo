@@ -1,7 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Todo } from '../../models/todo';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+
+import * as todo from '../../actions/todo';
 
 interface AppState {
   todos: Todo[];
@@ -14,10 +16,17 @@ interface AppState {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoPageComponent {
-  // todos$: Observable<Todo[]>;
+  todos$: Observable<Todo[]>;
 
-  // constructor(store: Store<AppState>) {
-  //   this.todos$ = store.select('todos');
-  // }
+  constructor(private store: Store<AppState>) {
+    this.todos$ = <Observable<Todo[]>>store.select('todos').select('todos');
+  }
 
+  createTodo(content: string){
+    this.store.dispatch(new todo.CreateAction({
+      content: content,
+      isCompleted: false
+    }));
+  }
+  
 }
